@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>해커스 토익 실전 1000제 2 by 조해나선생님 LC단어학습 Guide - TEST 01</title><style>
+:root{--primary:#8f4b8b;--primary2:#34213a;--bg:#f7f4f8;--ink:#251d2b;--muted:#716679;--line:#e8e0ea;}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Malgun Gothic","Apple SD Gothic Neo",Arial,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:980px;margin:0 auto;padding:24px}
+.hero{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;border-radius:20px;padding:28px 30px;box-shadow:0 14px 34px rgba(54,33,59,.18)}
+.hero h1{margin:0 0 8px;font-size:28px;line-height:1.35}.hero p{margin:0;opacity:.92;line-height:1.55}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;margin-top:18px;box-shadow:0 5px 18px rgba(54,33,59,.06)}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.btn{border:0;border-radius:12px;padding:14px 16px;font-weight:700;font-size:15px;cursor:pointer;background:var(--primary);color:#fff}
+.btn.secondary{background:#5f5465}.btn.ghost{background:#f2edf4;color:#514557}.btn:disabled{opacity:.45;cursor:not-allowed}
+.section-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}
+.tab{border:1px solid var(--line);background:#fff;padding:9px 13px;border-radius:999px;cursor:pointer;font-weight:700}
+.tab.active{background:var(--primary);border-color:var(--primary);color:#fff}
+.hidden{display:none!important}
+.card{border:1px solid var(--line);border-radius:14px;padding:18px;margin:12px 0;background:#fff}
+.qword{font-size:20px;color:var(--primary);font-weight:800;margin:6px 0 12px}
+.choices{display:grid;gap:8px}.choice{display:block;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer}.choice:hover{background:#fbf8fc}.choice input{margin-right:8px}
+input.answer{width:100%;padding:12px;border:1px solid #d7ceda;border-radius:10px;font-size:15px}
+.result{padding:16px;border-radius:12px;background:#f5f1f6;margin-top:14px}.correct{border-color:#86efac;background:#f0fdf4}.wrong{border-color:#fecaca;background:#fef2f2}.model-answer{margin-top:9px;color:#5f5465;font-size:14px}
+table{width:100%;border-collapse:collapse}th,td{padding:10px 9px;border-bottom:1px solid var(--line);text-align:left}th{background:#faf7fb;position:sticky;top:0}.n{width:70px;color:#716679}
+.badge{display:inline-block;padding:4px 8px;border-radius:999px;background:#f1e7f2;color:#59445d;font-size:12px;font-weight:700}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;justify-content:space-between}.progress{font-size:14px;color:var(--muted)}
+.backlink{display:inline-block;margin-bottom:12px;color:#5f5465;text-decoration:none;font-weight:700}
+.test-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.test-link{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff;transition:.15s}
+.test-link:hover{border-color:#b9a6bd;transform:translateY(-1px);box-shadow:0 5px 14px rgba(54,33,59,.07)}
+.test-link b{font-size:18px;color:var(--primary)}.test-link span{display:block;color:#716679;margin-top:5px;font-size:14px}
+.note{font-size:13px;color:#716679;line-height:1.6}.count-ok{color:#027a48;font-weight:800}
+.guide{border-left:4px solid var(--primary);padding:12px 14px;background:#faf7fb;border-radius:0 10px 10px 0;line-height:1.6}
+@media(max-width:720px){.wrap{padding:14px}.hero{padding:22px}.hero h1{font-size:22px}.menu{grid-template-columns:1fr}.test-grid{grid-template-columns:1fr}.panel{padding:16px}.card{padding:14px}}
+@media print{body{background:white}.hero,.no-print{display:none!important}.panel{box-shadow:none;border:0;padding:0}.wrap{max-width:none;padding:0}.card{break-inside:avoid}}
+</style></head>
+<body><div class="wrap">
+<a class="backlink no-print" href="index.html">← 전체 TEST 목록</a>
+<div class="hero"><h1>해커스 토익 실전 1000제 2 by 조해나선생님 LC단어학습 Guide</h1><p>TEST 01 · SECTION A · B · C · D / 총 200개 어휘</p></div>
+
+<div id="home" data-view class="panel">
+  <div class="menu">
+    <button class="btn" onclick="renderVocab('ALL')">📚 전체 200개 단어장</button>
+    <button class="btn" onclick="makeQuiz('choice',40)">✍️ 랜덤 4지선다 40</button>
+    <button class="btn" onclick="makeQuiz('word',40)">🎯 랜덤 주관식 40</button>
+  </div>
+  <p class="note">SECTION A-D 각 50개씩 총 200개입니다. 퀴즈 정답은 제출 전에는 표시되지 않으며 새로 시작할 때마다 문제가 무작위로 바뀝니다.</p>
+</div>
+
+<div id="vocab" data-view class="panel hidden">
+  <div class="toolbar no-print">
+    <button class="btn secondary" onclick="backHome()">← 메인</button>
+    <div class="section-tabs">
+      <button class="tab active" data-sec="ALL" onclick="renderVocab('ALL')">전체</button>
+      <button class="tab" data-sec="A" onclick="renderVocab('A')">A</button>
+      <button class="tab" data-sec="B" onclick="renderVocab('B')">B</button>
+      <button class="tab" data-sec="C" onclick="renderVocab('C')">C</button>
+      <button class="tab" data-sec="D" onclick="renderVocab('D')">D</button>
+    </div>
+  </div>
+  <div id="vocabBody"></div>
+</div>
+
+<div id="quiz" data-view class="panel hidden">
+  <div class="toolbar no-print">
+    <button class="btn secondary" onclick="backHome()">← 메인</button>
+    <div><b id="quizTitle"></b><div id="quizMeta" class="progress"></div></div>
+  </div>
+  <div id="quizBody"></div>
+  <div id="quizResult" class="result hidden"></div>
+  <button id="submitBtn" class="btn no-print" style="width:100%;margin-top:14px" onclick="submitQuiz()">제출 / 정답 확인</button>
+</div>
+</div>
+<script>window.TEST_DATA={"test":1,"sections":{"A":[{"en":"meal","ko":"식사"},{"en":"wipe","ko":"닦다"},{"en":"reach","ko":"손을 뻗다"},{"en":"against","ko":"~에 기대어"},{"en":"streetlight","ko":"가로등"},{"en":"intersection","ko":"교차로"},{"en":"unoccupied","ko":"비어 있는"},{"en":"windowsill","ko":"창틀"},{"en":"power cord","ko":"전선"},{"en":"pack","ko":"포장하다"},{"en":"operate","ko":"조작하다"},{"en":"disassemble","ko":"분해하다"},{"en":"purchase","ko":"구입품; 구매하다"},{"en":"register","ko":"등록하다; 등록기"},{"en":"leave policy","ko":"휴가 정책"},{"en":"sick leave","ko":"병가"},{"en":"shipment","ko":"배송, 배송품"},{"en":"journey","ko":"여정, 여행"},{"en":"extend","ko":"연장하다, 늘리다"},{"en":"shower","ko":"소나기"},{"en":"challenging","ko":"힘드는, 도전적인"},{"en":"get lost","ko":"없어지다, 행방불명이 되다"},{"en":"editorial","ko":"편집의, 사설의"},{"en":"incomplete","ko":"미완성의"},{"en":"reject","ko":"거부하다"},{"en":"in person","ko":"직접"},{"en":"stock","ko":"재고, 주식"},{"en":"temporarily","ko":"임시로"},{"en":"manage","ko":"해내다, 관리하다"},{"en":"blueprint","ko":"계획, 청사진"},{"en":"leaflet","ko":"전단, 인쇄물"},{"en":"paycheck","ko":"월급, 급료"},{"en":"insurance","ko":"보험"},{"en":"debit card","ko":"직불카드"},{"en":"assignment","ko":"업무, 과제"},{"en":"submit","ko":"제출하다"},{"en":"real estate","ko":"부동산"},{"en":"speech","ko":"연설"},{"en":"drinking fountain","ko":"식수대"},{"en":"out of order","ko":"고장 난"},{"en":"resourceful","ko":"재치 있는"},{"en":"firm","ko":"회사"},{"en":"satisfy","ko":"만족시키다"},{"en":"outcome","ko":"결과"},{"en":"likely","ko":"가능성 있는"},{"en":"wise","ko":"현명한"},{"en":"move in","ko":"이사 오다"},{"en":"reference","ko":"추천인, 참조"},{"en":"cite","ko":"인용하다"},{"en":"belongings","ko":"소유물, 소지품"}],"B":[{"en":"absolutely","ko":"전적으로"},{"en":"accommodation","ko":"숙박시설"},{"en":"household","ko":"가정의"},{"en":"advance payment","ko":"선급금"},{"en":"seat","ko":"수용하다, 앉히다"},{"en":"suburb","ko":"교외"},{"en":"alternative","ko":"대안"},{"en":"appreciation","ko":"감사"},{"en":"booking","ko":"예약"},{"en":"affordable","ko":"저렴한, (가격 등이) 알맞은"},{"en":"valet parking","ko":"대리 주차"},{"en":"sculpture","ko":"조각품, 조각"},{"en":"permit","ko":"허용하다"},{"en":"make an exception","ko":"예외를 두다"},{"en":"press","ko":"기자, 언론"},{"en":"brochure","ko":"소책자"},{"en":"photograph","ko":"사진"},{"en":"facility","ko":"시설"},{"en":"notification","ko":"알림"},{"en":"form","ko":"양식"},{"en":"expectation","ko":"요구, 예상"},{"en":"reasonable","ko":"합리적인"},{"en":"accounting","ko":"회계"},{"en":"coincidence","ko":"우연"},{"en":"sightseeing","ko":"관광"},{"en":"Dutch","ko":"네덜란드의"},{"en":"close a deal","ko":"거래를 성사시키다, 계약을 체결하다"},{"en":"relative","ko":"친척"},{"en":"exhibition","ko":"전시회"},{"en":"dining establishment","ko":"식당"},{"en":"approval","ko":"승인"},{"en":"hard copy","ko":"인쇄본"},{"en":"proofread","ko":"교정하다"},{"en":"technician","ko":"기술자"},{"en":"upstairs","ko":"위층으로"},{"en":"writer","ko":"기자, 작가"},{"en":"official","ko":"공무원"},{"en":"replace","ko":"교체하다"},{"en":"assist","ko":"돕다, 지원하다"},{"en":"sign up for","ko":"~을 신청하다"},{"en":"non-refundable","ko":"환불 불가능한"},{"en":"annual","ko":"연례의"},{"en":"experimental","ko":"실험의"},{"en":"overcharge","ko":"과다 청구하다"},{"en":"conflict","ko":"충돌, 갈등"},{"en":"stop by","ko":"들르다"},{"en":"decline","ko":"감소하다"},{"en":"significantly","ko":"상당히"},{"en":"setback","ko":"차질, 실패"},{"en":"steadily","ko":"점차"}],"C":[{"en":"relief","ko":"안심"},{"en":"certificate","ko":"자격증"},{"en":"hand","ko":"일손"},{"en":"organizational","ko":"조직적인, 구조적인"},{"en":"performance","ko":"성과"},{"en":"illness","ko":"질병"},{"en":"relocate","ko":"이사하다"},{"en":"fixture","ko":"기구, 고정물"},{"en":"safety","ko":"안전"},{"en":"access","ko":"이용 권리, 출입 권리"},{"en":"transportation","ko":"교통편, 수송"},{"en":"freeze","ko":"(시스템이) 멈추다, 정지하다"},{"en":"encounter","ko":"부딪히다, 맞닥뜨리다"},{"en":"complaint","ko":"불만 사항"},{"en":"technical","ko":"기술적인"},{"en":"confirm","ko":"확인하다"},{"en":"appointment","ko":"약속"},{"en":"owe","ko":"지불해야 하다, 빚지다"},{"en":"overview","ko":"개요"},{"en":"novel","ko":"소설"},{"en":"check out","ko":"(책을) 대출하다"},{"en":"closure","ko":"폐쇄"},{"en":"unpaid","ko":"미납의"},{"en":"fine","ko":"연체료, 벌금"},{"en":"prevent","ko":"예방하다, 막다"},{"en":"analysis","ko":"분석"},{"en":"charge","ko":"청구하다, 부과하다"},{"en":"minimum","ko":"최소의"},{"en":"rarely","ko":"거의 ~하지 않은"},{"en":"review","ko":"검토하다, 복습하다"},{"en":"shipping","ko":"배송"},{"en":"recruit","ko":"신입 사원, 신병"},{"en":"incoming","ko":"신입의, 들어오는"},{"en":"policy","ko":"정책"},{"en":"expansion","ko":"확장"},{"en":"benefit","ko":"복지, 이익"},{"en":"browse","ko":"둘러보다"},{"en":"extensive","ko":"방대한, 광범위한"},{"en":"go over","ko":"검토하다"},{"en":"procedure","ko":"절차"},{"en":"disregard","ko":"무시하다"},{"en":"handwritten","ko":"손으로 쓴"},{"en":"census","ko":"인구 조사"},{"en":"correspondence","ko":"서신"},{"en":"litter","ko":"쓰레기를 버리다"},{"en":"refrain","ko":"삼가다, 하지 않다"},{"en":"massive","ko":"대규모의, 거대한"},{"en":"commence","ko":"시작하다"},{"en":"last","ko":"계속되다"},{"en":"observe","ko":"지키다, 준수하다"}],"D":[{"en":"admission fee","ko":"입장료"},{"en":"exclusively","ko":"전용으로"},{"en":"shoot","ko":"(사진) 촬영"},{"en":"push back","ko":"미루다"},{"en":"asset","ko":"자산"},{"en":"accomplish","ko":"달성하다, 성취하다"},{"en":"production","ko":"생산"},{"en":"approve","ko":"승인하다"},{"en":"get in shape","ko":"몸을 만들다, 좋은 몸 상태 를 유지하다"},{"en":"pull-up","ko":"턱걸이"},{"en":"take up","ko":"차지하다"},{"en":"loyal customer","ko":"단골 고객"},{"en":"take one’s word for it","ko":"~의 말을 그대로 믿다"},{"en":"reduce","ko":"인하하다"},{"en":"loyalty program","ko":"고객 보상 프로그램"},{"en":"track","ko":"추적하다"},{"en":"progress","ko":"진행 상황, 진척"},{"en":"response","ko":"반응"},{"en":"air","ko":"방영하다"},{"en":"noteworthy","ko":"주목할 만한"},{"en":"circulate","ko":"순환하다"},{"en":"athlete","ko":"운동선수"},{"en":"humorous","ko":"재미있는"},{"en":"element","ko":"요소"},{"en":"viewpoint","ko":"관점"},{"en":"concern","ko":"우려, 걱정"},{"en":"assertion","ko":"주장"},{"en":"improvement","ko":"개선, 향상"},{"en":"frustration","ko":"좌절감, 불만"},{"en":"plant","ko":"공장"},{"en":"at full capacity","ko":"완전히"},{"en":"trend","ko":"동향"},{"en":"objective","ko":"목표"},{"en":"budget","ko":"예산"},{"en":"halt","ko":"중지하다"},{"en":"renovate","ko":"개조하다"},{"en":"bulletin board","ko":"게시판"},{"en":"fairly","ko":"꽤"},{"en":"simply","ko":"절대, 전혀"},{"en":"fit into","ko":"맞다"},{"en":"set aside","ko":"따로 떼어놓다"},{"en":"submission","ko":"제출"},{"en":"inappropriate","ko":"부적절한"},{"en":"lengthy","ko":"긴, 장황한"},{"en":"warehouse","ko":"창고"},{"en":"cover","ko":"다루다"},{"en":"register for","ko":"~에 등록하다"},{"en":"blanket","ko":"뒤덮다"},{"en":"wind gust","ko":"돌풍"},{"en":"affect","ko":"영향을 주다"}]}};window.TEST_PRIMARY="#8f4b8b";</script>
+<script>
+const DATA=window.TEST_DATA;
+const primary=window.TEST_PRIMARY;document.documentElement.style.setProperty('--primary',primary);
+const allWords=Object.values(DATA.sections).flat();
+let currentQuiz=[];let currentType='';
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function show(id){document.querySelectorAll('[data-view]').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
+function backHome(){show('home');}
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function renderVocab(sec='ALL'){
+ show('vocab');const box=document.getElementById('vocabBody');let rows=[];
+ if(sec==='ALL'){Object.entries(DATA.sections).forEach(([s,arr])=>arr.forEach((w,i)=>rows.push([s,i+1,w])))}else DATA.sections[sec].forEach((w,i)=>rows.push([sec,i+1,w]));
+ box.innerHTML=`<table><thead><tr><th class="n">구분</th><th>영어 어휘</th><th>뜻</th></tr></thead><tbody>${rows.map(([s,i,w])=>`<tr><td><span class="badge">${s}-${i}</span></td><td><b>${esc(w.en)}</b></td><td>${esc(w.ko)}</td></tr>`).join('')}</tbody></table>`;
+ document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.sec===sec));
+}
+function makeQuiz(type,count=40){
+ currentType=type;currentQuiz=shuffle(allWords).slice(0,Math.min(count,allWords.length));show('quiz');
+ document.getElementById('quizTitle').textContent=type==='choice'?'랜덤 4지선다 퀴즈':'랜덤 주관식 퀴즈';
+ document.getElementById('quizMeta').textContent=`${currentQuiz.length}문항 · TEST ${String(DATA.test).padStart(2,'0')} 전체 200개에서 출제`;
+ const area=document.getElementById('quizBody');
+ if(type==='choice'){
+   area.innerHTML=currentQuiz.map((w,i)=>{
+     let wrong=shuffle(allWords.filter(x=>x.en!==w.en && x.ko!==w.ko)).slice(0,3);
+     let opts=shuffle([...wrong,w]);
+     return `<div class="card" data-answer="${esc(w.ko)}"><b>${i+1}. 다음 단어의 알맞은 뜻은?</b><div class="qword">${esc(w.en)}</div><div class="choices">${opts.map((o,j)=>`<label class="choice"><input type="radio" name="q${i}" value="${esc(o.ko)}">${['①','②','③','④'][j]} ${esc(o.ko)}</label>`).join('')}</div><div class="model-answer hidden"></div></div>`;
+   }).join('');
+ }else{
+   area.innerHTML=currentQuiz.map((w,i)=>`<div class="card" data-answer="${esc(w.ko)}"><b>${i+1}.</b><div class="qword">${esc(w.en)}</div><input class="answer" placeholder="뜻을 입력해 보세요 (제출 후 모범답안 확인)"/><div class="model-answer hidden"></div></div>`).join('');
+ }
+ document.getElementById('quizResult').classList.add('hidden');document.getElementById('submitBtn').disabled=false;
+}
+function submitQuiz(){
+ let score=0,answered=0;
+ document.querySelectorAll('#quizBody .card').forEach((card,i)=>{
+   const ans=card.dataset.answer;const ma=card.querySelector('.model-answer');
+   ma.classList.remove('hidden');ma.textContent='모범답안: '+ans;
+   if(currentType==='choice'){
+     const sel=card.querySelector('input:checked');
+     if(sel){answered++;if(sel.value===ans){score++;card.classList.add('correct')}else card.classList.add('wrong')}
+   }else{
+     const inp=card.querySelector('input.answer');if(inp.value.trim())answered++;
+   }
+ });
+ const r=document.getElementById('quizResult');r.classList.remove('hidden');
+ r.innerHTML=currentType==='choice'
+ ?`<b>채점 결과: ${score} / ${currentQuiz.length}</b><br><span class="note">응답 ${answered}문항. 각 문항 아래에 모범답안이 표시됩니다.</span>`
+ :`<b>주관식 답안 공개 완료</b><br><span class="note">주관식은 표현이 다양하므로 자동채점하지 않고, 입력 답안과 모범답안을 직접 비교하도록 구성했습니다.</span>`;
+ document.getElementById('submitBtn').disabled=true;r.scrollIntoView({behavior:'smooth'});
+}
+</script></body></html>
